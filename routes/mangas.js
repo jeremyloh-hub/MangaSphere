@@ -1,9 +1,11 @@
 var express = require("express");
 var router = express.Router();
-const mangaCtrl = require("../controllers/manga");
+const mangaCtrl = require("../controllers/mangas");
 
 /* GET home page. */
 router.get("/:id", mangaCtrl.showManga);
-router.post("/:id", mangaCtrl.addReview);
+router.get("/member/:id", mangaCtrl.showMangaMem);
+router.delete("/:id");
+router.put("/:id");
 
 module.exports = router;

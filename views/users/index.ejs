@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styleLogin.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Login</title>
+</head>
+  
+
+<body>
+    <div class="login-box">
+        <a href="/" class="back-button">&lt; Back</a>
+        <h1>Login</h1>
+        <form action="/users" method="post">
+            <label for="userid">UserID:</label>
+            <input type="text" id="userid" name="userid">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <input type="submit" value="Login">
+            <a href="/users/add"><button type="button">Sign Up</button></a>
+            <label><%=message%></label>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/styleLogin.css">
+    <title>Signup</title>
+</head>
+<body>
+    <div class="signup-box">
+    <a href="/" class="back-button">&lt; Back</a>
+        <h1>Signup</h1>
+        <form action="/users/add" method="post">
+            <label for="userid">UserID:</label>
+            <input type="text" id="userid" name="userid">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <label for="cpassword">Confirm Password:</label>
+            <input type="password" id="cpassword" name="cpassword">
+            <input type="submit" value="Sign Up">
+            <label><%=message%></label>
+        </form>
+    </div>
+</body>
+</html>

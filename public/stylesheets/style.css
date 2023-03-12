@@ -91,6 +91,10 @@ button[type="submit"] {
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    width: 100%;
+    max-width: 200px;
+
+    display: block;
 }
 
 button[type="submit"]:hover {
@@ -124,10 +128,8 @@ button[type="submit"]:hover {
     margin-bottom: 10px;
 }
 
-button[type="submit"] {
-    width: 100%;
-    max-width: 200px;
-    margin-top: 10px;
-    display: block;
-    margin-top: 10px;
+.logout{
+    margin-left: auto;
 }
+
+

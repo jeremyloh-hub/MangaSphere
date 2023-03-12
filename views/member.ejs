@@ -13,10 +13,11 @@
   <nav>
     <ul>
       <li><a href="#">Home</a></li>
+      <li><a href="#">Profile</a></li>
     </ul>
-    <div class="login-signup">
-      <a href="/users/">Login / Sign up</a>
-    </div>
+        <div class="logout">
+          <a href="/">Logout</a>
+        </div>
   </nav>
 
   <form action="/">
@@ -26,7 +27,7 @@
 
     <div class="pictures">
     <% mangas.forEach((m)=> {%>
-      <a href="/mangas/<%=m._id%>">
+      <a href="/mangas/member/<%=m._id%>">
       <img src="<%=m.picture%>" class="mpicture">
       </a>
         <% }) %>
