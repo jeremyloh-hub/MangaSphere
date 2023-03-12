@@ -118,5 +118,16 @@ button[type="submit"]:hover {
 }
 
 .review {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
     margin-bottom: 10px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    max-width: 200px;
+    margin-top: 10px;
+    display: block;
+    margin-top: 10px;
 }

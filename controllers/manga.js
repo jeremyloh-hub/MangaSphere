@@ -20,7 +20,23 @@ const showManga = async (req, res) => {
   }
 };
 
+const addReview = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { content, rating } = req.body;
+    const review = { content, rating };
+
+    const mangas = await Manga.findById(id);
+    mangas.reviews.push(review);
+    await mangas.save();
+    res.redirect(`/mangas/${id}`);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   showHome,
   showManga,
+  addReview,
 };

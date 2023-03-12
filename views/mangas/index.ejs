@@ -86,9 +86,9 @@
                                     <br>
         </div>
         <% }) %>
-            <% }) %>
-    <form action="mangas/reviews" method="POST">
-        <textarea id="review" name="review"></textarea>
+           
+    <form action="/mangas/<%=m._id%>" method="POST">
+        <textarea id="review" name="content"></textarea>
     </div>
         <div class="rating">
             <input type="radio" id="star5" name="rating" value="5" />
@@ -111,16 +111,13 @@
             <label for="star1" title="1 star">
                 <i class="fa fa-star"></i>
             </label>
-
-
         </div>
-
-
-
-            <button type="submit">Submit Review</button>
+    
+        <button type="submit">Submit Review</button>
         </div>
      
     </form>
+    <% }) %>
 </body>
 
 </html>
