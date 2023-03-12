@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+  <title>MangaSphere</title>
+</head>
+<body>
+<h2>MangaSphere</h2>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Profile</a></li>
+    </ul>
+    <div class="login-signup">
+      <a href="#">Login / Sign up</a>
+    </div>
+  </nav>
+
+  <form action="/search">
+    <input type="text" placeholder="Search...">
+    <button type="submit">Go</button>
+  </form>
+
+    <div class="pictures">
+    <% mangas.forEach((m)=> {%>
+      <a href="/mangas/<%=m._id%>">
+      <img src="<%=m.picture%>" class="mpicture">
+      </a>
+        <% }) %>
+        </div>
+         
+</body>
+</html>

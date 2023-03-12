@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <title>MangaSphere</title>
+</head>
+
+<body>
+    <h2>MangaSphere</h2>
+<nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="#">Profiles</a></li>
+    </ul>
+    <div class="login-signup">
+        <a href="#">Login / Sign up</a>
+    </div>
+</nav>  
+    <div class="manga">
+        <% mangas.forEach((m)=> {%>
+            <img class="mangapic" src="<%=m.picture%>">
+            <div>
+            <h3>Title: <%=m.title%></h3>
+            <br>
+            <label>Volumes: <%=m.volumes%></label>
+            <br>
+            <label>Chapters: <%=m.chapters%></label>
+            <br>
+            <label>Status: <%=m.status%></label>
+            <br>
+            <label>Genres: </label>
+            <% m.genres.forEach((j)=> {%>
+                <label><%=j%> |</label>
+            <% }) %>
+            <label>Synopsis: <%=m.synopsis%></label>
+            </div>
+        
+    </div>
+
+    <div>
+    <h3>Reviews: </h3>
+    <% m.reviews.forEach((k)=> { %>
+        <div class="review">
+            <label>UserXXX</label>
+            <br>
+            <% if (k.rating===5) { %>
+                <label>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </label>
+                <% } else if (k.rating===4) { %>
+                    <label>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </label>
+                    <% } else if (k.rating===3) { %>
+                        <label>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </label>
+                        <% } else if (k.rating===2) { %>
+                            <label>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </label>
+                            <% } else if (k.rating===1) { %>
+                                <label>
+                                    <i class="fas fa-star"></i>
+                                </label>
+                                <% } %>
+                                    <label>
+                                        <%=k.content%>
+                                    </label>
+                                    <br>
+        </div>
+        <% }) %>
+            <% }) %>
+    <form action="mangas/reviews" method="POST">
+        <textarea id="review" name="review"></textarea>
+    </div>
+        <div class="rating">
+            <input type="radio" id="star5" name="rating" value="5" />
+            <label for="star5" title="5 stars">
+                <i class="fa fa-star"></i>
+            </label>
+            <input type="radio" id="star4" name="rating" value="4" />
+            <label for="star4" title="4 stars">
+                <i class="fa fa-star"></i>
+            </label>
+            <input type="radio" id="star3" name="rating" value="3" />
+            <label for="star3" title="3 stars">
+                <i class="fa fa-star"></i>
+            </label>
+            <input type="radio" id="star2" name="rating" value="2" />
+            <label for="star2" title="2 stars">
+                <i class="fa fa-star"></i>
+            </label>
+            <input type="radio" id="star1" name="rating" value="1" />
+            <label for="star1" title="1 star">
+                <i class="fa fa-star"></i>
+            </label>
+
+
+        </div>
+
+
+
+            <button type="submit">Submit Review</button>
+        </div>
+     
+    </form>
+</body>
+
+</html>
