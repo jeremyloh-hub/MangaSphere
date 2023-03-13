@@ -18,7 +18,7 @@ const login = async (req, res) => {
   const user = await User.findOne({ userid }).exec();
   if (user === null) {
     const message = "No such user!";
-    res.render("users/login", { message });
+    res.render("users/index", { message });
     return;
   }
   bcrypt.compare(password, user.password, (err, result) => {
@@ -26,8 +26,8 @@ const login = async (req, res) => {
       req.session.userid = user._id;
       res.redirect("/member");
     } else {
-      const message = "password wrong";
-      res.render("users/login", { message });
+      const message = "Password is wrong";
+      res.render("users/index", { message });
     }
   });
 };

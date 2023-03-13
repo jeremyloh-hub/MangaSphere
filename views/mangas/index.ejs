@@ -46,7 +46,10 @@
     <h3>Reviews: </h3>
     <% m.reviews.forEach((k)=> { %>
         <div class="review">
-            <label>UserXXX</label>
+        <% const userId=k.user.map(u=> u.userid).join(', ') %>
+        <label>
+            <%= userId %>
+        </label>
             <br>
             <% if (k.rating===5) { %>
                 <label>

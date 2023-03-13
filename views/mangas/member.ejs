@@ -28,6 +28,8 @@
             <div>
             <h3>Title: <%=m.title%></h3>
             <br>
+            <label>Author: <%=m.author%></label>
+            <br>
             <label>Volumes: <%=m.volumes%></label>
             <br>
             <label>Chapters: <%=m.chapters%></label>
@@ -47,8 +49,17 @@
     <h3>Reviews: </h3>
     <% m.reviews.forEach((k)=> { %>
         <div class="review">
-            <label>UserXXX</label>
+    <% const userId=k.user.map(u=> u.userid).join(', ') %>
+    <% const id=k.user.map(u=> u._id).join(', ') %>
+    <label><%= userId %></label>
             <br>
+            <form action="/mangas/member/<%=m._id%>/<%=k._id%>/<%=id%>/edit">
+                <button id="editbtn">Edit</button>
+            </form>
+            <form>
+                <button id="delbtn">Delete</button>
+            </form>
+         
             <% if (k.rating===5) { %>
                 <label>
                     <i class="fas fa-star"></i>
@@ -87,7 +98,7 @@
         </div>
         <% }) %>
            
-    <form action="/mangas/<%=m._id%>" method="POST">
+    <form action="<%=m._id%>" method="POST">
         <textarea id="review" name="content"></textarea>
     </div>
         <div class="rating">

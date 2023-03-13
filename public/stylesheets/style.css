@@ -132,4 +132,29 @@ button[type="submit"]:hover {
     margin-left: auto;
 }
 
+.review form button {
+    float: right;
+    /* float the button to the right */
+}
 
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.review {
+    position: relative;
+    padding-right: 80px;
+    /* add padding to the right to make space for the buttons */
+}
+
+.review form {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#editbtn{
+    margin-right: 120px;
+}

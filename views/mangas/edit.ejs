@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+</head>
+<body>
+    <h1>Edit Review</h1>
+    <form action="/mangas/member/<%= mangaID %>/<%= reviewID %>/edit" method="POST">
+        <input type="text" name="rating" value="<%= review.rating %>">
+        <textarea name="content"><%= review.content %></textarea>
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>
