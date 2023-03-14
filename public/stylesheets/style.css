@@ -158,3 +158,8 @@ button[type="submit"]:hover {
 #editbtn{
     margin-right: 120px;
 }
+
+textarea {
+    width: 100%;
+    height: 100%;
+}

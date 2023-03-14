@@ -71,15 +71,45 @@ const showEdit = async (req, res) => {
 
   try {
     if (userID === session) {
-      const manga = await Manga.findOne({ _id: mangaID }).exec();
-      const review = manga.reviews.id(reviewID);
+      const mangas = await Manga.findOne({ _id: mangaID }).exec();
+      const review = mangas.reviews.id(reviewID);
       res.render("mangas/edit", { mangaID, reviewID, userID, review });
     } else {
       res.redirect(`/mangas/member/${mangaID}`);
     }
   } catch (err) {
     console.error(err);
-    res.redirect("/");
+  }
+};
+
+const editReview = async (req, res) => {
+  const { mangaID, reviewID } = req.params;
+  const { rating, content } = req.body;
+  try {
+    const mangas = await Manga.findOne({ _id: mangaID }).exec();
+    const review = mangas.reviews.id(reviewID);
+    review.content = content;
+    review.rating = rating;
+    await mangas.save();
+    res.redirect(`/mangas/member/${mangaID}`);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const deleteReview = async (req, res) => {
+  const { mangaID, reviewID, userID } = req.params;
+  const session = req.session.userid;
+  try {
+    if (userID === session) {
+      const mangas = await Manga.findOne({ _id: mangaID }).exec();
+      const review = mangas.reviews.id(reviewID);
+      review.deleteOne({ _id: reviewID });
+      await mangas.save();
+      res.redirect(`/mangas/member/${mangaID}`);
+    }
+  } catch (error) {
+    console.log(error);
   }
 };
 
@@ -90,4 +120,6 @@ module.exports = {
   showHomeMem,
   showMangaMem,
   showEdit,
+  editReview,
+  deleteReview,
 };

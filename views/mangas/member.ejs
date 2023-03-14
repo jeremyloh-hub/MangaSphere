@@ -56,7 +56,7 @@
             <form action="/mangas/member/<%=m._id%>/<%=k._id%>/<%=id%>/edit">
                 <button id="editbtn">Edit</button>
             </form>
-            <form>
+            <form action="/mangas/member/<%=m._id%>/<%=k._id%>/<%=id%>?_method=DELETE" method="post" >
                 <button id="delbtn">Delete</button>
             </form>
          
@@ -93,7 +93,7 @@
                                 <% } %>
                                     <label>
                                         <%=k.content%>
-                                    </label>
+                                    </lab>
                                     <br>
         </div>
         <% }) %>

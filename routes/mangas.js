@@ -6,8 +6,8 @@ const mangaCtrl = require("../controllers/mangas");
 router.get("/:id", mangaCtrl.showManga);
 router.get("/member/:id", mangaCtrl.showMangaMem);
 router.post("/member/:id", mangaCtrl.addReview);
-router.delete("/:id");
-router.put("/:id");
 router.get("/member/:mangaID/:reviewID/:userID/edit", mangaCtrl.showEdit);
+router.put("/member/:mangaID/:reviewID/:userID/edit", mangaCtrl.editReview);
+router.delete("/member/:mangaID/:reviewID/:userID", mangaCtrl.deleteReview);
 
 module.exports = router;
