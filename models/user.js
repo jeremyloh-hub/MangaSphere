@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-    userid: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
+    userid: { type: String, required: true, unique: true, minLength: 4 },
+    password: { type: String, required: true, minLength: 4 },
   },
   { timestamps: true }
 );

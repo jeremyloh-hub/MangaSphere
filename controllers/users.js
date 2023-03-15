@@ -49,6 +49,10 @@ const userRegister = async (req, res) => {
       const message = "Please fill in all fields";
       return res.render("users/add", { message });
     } else if (checkUser === null && password === cpassword) {
+      if (userid.length < 4 || password.length < 4) {
+        const message = "Userid or Password is must be at least 4 characters!";
+        res.render("users/add", { message });
+      }
       bcrypt.hash(password, SALTROUNDS, async (err, hash) => {
         const user = await User.create({ userid: userid, password: hash });
         user.save();
