@@ -1,18 +1,18 @@
 var express = require("express");
 var router = express.Router();
 const mangaCtrl = require("../controllers/mangas");
+const User = require("../models/user");
 
 const isAuth = async (req, res, next) => {
   if (req.session.userid) {
-    const user = await User.findById(req.session.userid).exec();
-    res.locals.user = user;
+    await User.findById(req.session.userid).exec();
     next();
   } else {
     res.status(403).send(req.session);
   }
 };
 
-router.get("/:id", isAuth, mangaCtrl.showManga);
+router.get("/:id", mangaCtrl.showManga);
 router.get("/member/:id", isAuth, mangaCtrl.showMangaMem);
 router.post("/member/:id", isAuth, mangaCtrl.addReview);
 router.get(
