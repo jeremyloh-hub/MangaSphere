@@ -12,7 +12,7 @@ const isAuth = async (req, res, next) => {
   }
 };
 
-router.get("/:id", mangaCtrl.showManga);
+router.get("/:id", isAuth, mangaCtrl.showManga);
 router.get("/member/:id", isAuth, mangaCtrl.showMangaMem);
 router.post("/member/:id", isAuth, mangaCtrl.addReview);
 router.get(
