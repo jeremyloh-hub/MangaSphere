@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const Manga = require("../models/manga");
+const fetch = require("node-fetch");
 
 const showHome = async (req, res) => {
   try {
@@ -113,6 +114,28 @@ const deleteReview = async (req, res) => {
   }
 };
 
+const fetchData = async () => {
+  const response = await fetch("https://api.jikan.moe/v4/manga");
+  if (!response.ok) {
+    throw new Error("Network Error");
+  }
+  const data = await response.json();
+  const fulldata = data.data;
+  fulldata.forEach(async (d) => {
+    const manga = new Manga({
+      title: d.title,
+      synopsis: d.synopsis,
+      author: d.authors.map((a) => a.name),
+      picture: d.images.webp.image_url,
+      chapters: d.chapters,
+      volumes: d.volumes,
+      status: d.status,
+      genres: d.genres.map((g) => g.name),
+    });
+    await manga.save();
+  });
+};
+
 module.exports = {
   showHome,
   showManga,
@@ -122,4 +145,5 @@ module.exports = {
   showEdit,
   editReview,
   deleteReview,
+  fetchData,
 };

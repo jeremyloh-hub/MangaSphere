@@ -22,10 +22,10 @@ const mangaSchema = new Schema(
   {
     title: { type: String, required: true, unique: true },
     synopsis: { type: String, required: true },
-    author: { type: String, required: true },
+    author: [{ type: String, required: true }],
     picture: { type: String, required: true },
-    chapters: { type: Number, required: true },
-    volumes: { type: Number, required: true },
+    chapters: { type: Number },
+    volumes: { type: Number },
     status: { type: String, required: true },
     genres: [{ type: String, required: true }],
     reviews: [reviewSchema],
