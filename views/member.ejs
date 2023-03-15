@@ -12,7 +12,7 @@
 <h2>MangaSphere</h2>
   <nav>
     <ul>
-      <li><a href="#">Home</a></li>
+      <li><a href="/">Home</a></li>
       <li><a href="#">Profile</a></li>
     </ul>
         <div class="logout">
@@ -20,15 +20,22 @@
         </div>
   </nav>
 
-  <form action="/">
-    <input type="text" name="title" placeholder="Search...">
-    <button type="submit">Go</button>
+  <form action="/member" method="GET">
+    <label for="searchType">Search by:</label>
+    <select name="searchType" id="searchType">
+      <option value="title">Title</option>
+      <option value="genre">Genre</option>
+    </select>
+    <label for="search">Search:</label>
+    <input type="text" name="search" id="search">
+    <button type="submit">Search</button>
   </form>
 
     <div class="pictures">
     <% mangas.forEach((m)=> {%>
       <a href="/mangas/member/<%=m._id%>">
       <img src="<%=m.picture%>" class="mpicture">
+      <label>Title: <%=m.title%></label>
       </a>
         <% }) %>
         </div>

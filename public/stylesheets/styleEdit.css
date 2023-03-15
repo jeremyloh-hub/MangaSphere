@@ -1,0 +1,71 @@
+input[type="text"] {
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    width: 200px;
+}
+
+button[type="submit"] {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 200px;
+
+    display: block;
+}
+
+button[type="submit"]:hover {
+    background-color: #0062cc;
+}
+
+.rating {
+    display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+}
+
+.rating input[type="radio"] {
+    display: none;
+}
+
+.rating label {
+    color: #ddd;
+    font-size: 2rem;
+    padding: 0.25rem 0.5rem;
+    float: none;
+    transition: color 0.25s;
+}
+
+.rating input[type="radio"]:checked~label {
+    color: #ff9800;
+    margin: 0 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    width: 100%;
+    height: auto;
+    min-height: 50px;
+    resize: vertical;
+
+}

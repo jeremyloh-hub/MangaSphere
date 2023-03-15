@@ -4,10 +4,20 @@ const fetch = require("node-fetch");
 
 const showHome = async (req, res) => {
   try {
-    const pattern = req.query.title;
-    const re = new RegExp(pattern);
-    const mangas = await Manga.find({ title: re });
-    res.render("index", { mangas });
+    const { search, searchType } = req.query;
+    if (searchType === "title") {
+      const reg = new RegExp(search, "i");
+      const mangas = await Manga.find({ title: { $regex: reg } });
+      res.render("index", { mangas });
+    } else if (searchType === "genre") {
+      const reg = new RegExp(search, "i");
+      const mangas = await Manga.find({ genres: { $regex: reg } });
+      res.render("index", { mangas });
+    } else {
+      const reg = new RegExp(search, "i");
+      const mangas = await Manga.find({ title: { $regex: reg } });
+      res.render("index", { mangas });
+    }
   } catch (error) {
     console.log(error);
   }
@@ -15,10 +25,20 @@ const showHome = async (req, res) => {
 
 const showHomeMem = async (req, res) => {
   try {
-    const pattern = req.query.title;
-    const re = new RegExp(pattern);
-    const mangas = await Manga.find({ title: re });
-    res.render("member", { mangas });
+    const { search, searchType } = req.query;
+    if (searchType === "title") {
+      const reg = new RegExp(search, "i");
+      const mangas = await Manga.find({ title: { $regex: reg } });
+      res.render("member", { mangas });
+    } else if (searchType === "genre") {
+      const reg = new RegExp(search, "i");
+      const mangas = await Manga.find({ genres: { $regex: reg } });
+      res.render("member", { mangas });
+    } else {
+      const reg = new RegExp(search, "i");
+      const mangas = await Manga.find({ title: { $regex: reg } });
+      res.render("member", { mangas });
+    }
   } catch (error) {
     console.log(error);
   }
@@ -44,7 +64,7 @@ const showMangaMem = async (req, res) => {
       path: "reviews",
       populate: { path: "user" },
     });
-    res.render("mangas/member", { mangas });
+    res.render("mangas/member", { mangas, session: req.session });
   } catch (error) {
     console.log(error);
   }
@@ -114,7 +134,7 @@ const deleteReview = async (req, res) => {
   }
 };
 
-const fetchData = async () => {
+const fetchData = async (req, res) => {
   const response = await fetch("https://api.jikan.moe/v4/manga");
   if (!response.ok) {
     throw new Error("Network Error");
@@ -134,6 +154,7 @@ const fetchData = async () => {
     });
     await manga.save();
   });
+  res.redirect("/");
 };
 
 module.exports = {

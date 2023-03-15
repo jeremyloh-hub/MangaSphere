@@ -53,13 +53,14 @@
     <% const id=k.user.map(u=> u._id).join(', ') %>
     <label><%= userId %></label>
             <br>
+            <% if(session.userid === id) {%>
             <form action="/mangas/member/<%=m._id%>/<%=k._id%>/<%=id%>/edit">
                 <button id="editbtn">Edit</button>
             </form>
             <form action="/mangas/member/<%=m._id%>/<%=k._id%>/<%=id%>?_method=DELETE" method="post" >
                 <button id="delbtn">Delete</button>
             </form>
-         
+            <%}%>
             <% if (k.rating===5) { %>
                 <label>
                     <i class="fas fa-star"></i>

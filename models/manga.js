@@ -20,14 +20,18 @@ const reviewSchema = new Schema(
 
 const mangaSchema = new Schema(
   {
-    title: { type: String, required: true, unique: true },
-    synopsis: { type: String, required: true },
-    author: [{ type: String, required: true }],
-    picture: { type: String, required: true },
-    chapters: { type: Number },
-    volumes: { type: Number },
-    status: { type: String, required: true },
-    genres: [{ type: String, required: true }],
+    title: { type: String, required: true, unique: true, minLength: 1 },
+    synopsis: { type: String, required: true, minLength: 1 },
+    author: [{ type: String, required: true, minLength: 1 }],
+    picture: { type: String, required: true, minLength: 1 },
+    chapters: { type: Number, default: null },
+    volumes: { type: Number, default: null },
+    status: {
+      type: String,
+      required: true,
+      enum: ["Finished", "Publishing", "On Hiatus"],
+    },
+    genres: [{ type: String, required: true, minLength: 1 }],
     reviews: [reviewSchema],
   },
   { timestamps: true }
