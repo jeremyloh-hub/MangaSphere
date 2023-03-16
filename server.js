@@ -1,3 +1,5 @@
+const THIRTYMIN = 30 * 60;
+
 var createError = require("http-errors");
 var express = require("express");
 var path = require("path");
@@ -15,7 +17,7 @@ const mangasRouter = require("./routes/mangas");
 const sessionStore = MongoStore.create({
   mongoUrl: process.env.DATABASE_URL,
   collectionName: "sessions",
-  ttl: 60 * 60,
+  ttl: THIRTYMIN,
 });
 
 var app = express();

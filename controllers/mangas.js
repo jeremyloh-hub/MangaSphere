@@ -106,6 +106,7 @@ const showEdit = async (req, res) => {
 const editReview = async (req, res) => {
   const { mangaID, reviewID } = req.params;
   const { rating, content } = req.body;
+  const opts = { runValidators: true };
   try {
     const mangas = await Manga.findOne({ _id: mangaID }).exec();
     const review = mangas.reviews.id(reviewID);
