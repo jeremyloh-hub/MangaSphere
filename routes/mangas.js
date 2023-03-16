@@ -12,6 +12,7 @@ const isAuth = async (req, res, next) => {
   }
 };
 
+router.post("/member/logout", mangaCtrl.removeSession);
 router.get("/:id", mangaCtrl.showManga);
 router.get("/member/:id", isAuth, mangaCtrl.showMangaMem);
 router.post("/member/:id", isAuth, mangaCtrl.addReview);

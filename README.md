@@ -29,7 +29,7 @@ https://dark-cyan-uniform.cyclic.app
 
 ## Dependencies
 
-1. bcrypt (Hasing Password)
+1. bcrypt (Hashing Password)
 2. connect-mongo (Create Session MongoDB)
 3. express (backend)
 4. node-fetch (3rd Party API)
@@ -145,3 +145,7 @@ const userSchema = new Schema(
 Connect-Mongo(Store session in database)
 
 1. https://github.com/jdesboeufs/connect-mongo
+
+CSS
+
+1. https://watercss.kognise.dev/

@@ -158,6 +158,16 @@ const fetchData = async (req, res) => {
   res.redirect("/");
 };
 
+const removeSession = async (req, res) => {
+  try {
+    res.redirect("/");
+    await req.session.destroy();
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Internal Server Error");
+  }
+};
+
 module.exports = {
   showHome,
   showManga,
@@ -168,4 +178,5 @@ module.exports = {
   editReview,
   deleteReview,
   fetchData,
+  removeSession,
 };
