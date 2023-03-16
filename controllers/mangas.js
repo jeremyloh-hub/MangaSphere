@@ -5,19 +5,15 @@ const fetch = require("node-fetch");
 const showHome = async (req, res) => {
   try {
     const { search, searchType } = req.query;
+    const reg = new RegExp(search, "i");
+    let query = {};
     if (searchType === "title") {
-      const reg = new RegExp(search, "i");
-      const mangas = await Manga.find({ title: { $regex: reg } });
-      res.render("index", { mangas });
+      query = { title: { $regex: reg } };
     } else if (searchType === "genre") {
-      const reg = new RegExp(search, "i");
-      const mangas = await Manga.find({ genres: { $regex: reg } });
-      res.render("index", { mangas });
-    } else {
-      const reg = new RegExp(search, "i");
-      const mangas = await Manga.find({ title: { $regex: reg } });
-      res.render("index", { mangas });
+      query = { genres: { $regex: reg } };
     }
+    const mangas = await Manga.find(query);
+    res.render("index", { mangas });
   } catch (error) {
     console.log(error);
   }
@@ -26,19 +22,15 @@ const showHome = async (req, res) => {
 const showHomeMem = async (req, res) => {
   try {
     const { search, searchType } = req.query;
+    const reg = new RegExp(search, "i");
+    let query = {};
     if (searchType === "title") {
-      const reg = new RegExp(search, "i");
-      const mangas = await Manga.find({ title: { $regex: reg } });
-      res.render("member", { mangas });
+      query = { title: { $regex: reg } };
     } else if (searchType === "genre") {
-      const reg = new RegExp(search, "i");
-      const mangas = await Manga.find({ genres: { $regex: reg } });
-      res.render("member", { mangas });
-    } else {
-      const reg = new RegExp(search, "i");
-      const mangas = await Manga.find({ title: { $regex: reg } });
-      res.render("member", { mangas });
+      query = { genres: { $regex: reg } };
     }
+    const mangas = await Manga.find(query);
+    res.render("member", { mangas });
   } catch (error) {
     console.log(error);
   }

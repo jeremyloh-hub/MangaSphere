@@ -10,7 +10,7 @@ My application is built using Node.js and Express for the backend, MongoDB for t
 
 ## Link for the App
 
-https://dark-cyan-uniform.cyclic.app
+https://mangasphere.cyclic.app/
 
 ## Screenshots of the App
 
@@ -83,6 +83,10 @@ Editting the review that the user previously post.
 
 Deleting the review.
 
+## Data Model
+
+![data](https://github.com/jeremyloh-hub/MangaSphere/blob/main/Notes/data.png?raw=true)
+
 ## Model Schema
 
 ```javascript
@@ -132,20 +136,28 @@ const userSchema = new Schema(
 
 ## Future Development
 
-1. Favourites for user to store their favourite manga
-2. List for user to keep track of all the manga they are reading
-3. Testing
+1. List for user to keep track of all the manga they are reading
+2. App Testing
+3. Better 3rd Party API that provide more manga
+4. Display Recommendation based on what you like
+
+## Key Takeaway
+
+- Importance of planning out the model
+- How to populate data with an embedded data & reading documentation
 
 ## References
 
 3rd Party API
 
-1. https://docs.api.jikan.moe/
+- https://docs.api.jikan.moe/
+
+* https://myanimelist.net/
 
 Connect-Mongo(Store session in database)
 
-1. https://github.com/jdesboeufs/connect-mongo
+- https://github.com/jdesboeufs/connect-mongo
 
 CSS
 
-1. https://watercss.kognise.dev/
+- https://watercss.kognise.dev/
