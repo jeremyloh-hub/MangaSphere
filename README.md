@@ -38,9 +38,9 @@ https://dark-cyan-uniform.cyclic.app
 
 ![Wireframe1](https://github.com/jeremyloh-hub/MangaSphere/blob/main/Notes/1.png?raw=true)
 
-![Wireframe2](https://github.com/jeremyloh-hub/MangaSphere/blob/main/Notes/2.png?raw=true)
-
 ![Wireframe3](https://github.com/jeremyloh-hub/MangaSphere/blob/main/Notes/3.png?raw=true)
+
+![Wireframe2](https://github.com/jeremyloh-hub/MangaSphere/blob/main/Notes/2.png?raw=true)
 
 ## Timeline for the Project
 
@@ -73,7 +73,7 @@ Getting manga data from the database and presenting it on the screen.
 
 ### UPDATE
 
-![update](https://github.com/jeremyloh-hub/MangaSphere/blob/main/Notes/update.png?raw=true)
+![update](https://github.com/jeremyloh-hub/MangaSphere/blob/main/Notes/edit.png?raw=true)
 
 Editting the review that the user previously post.
 
