@@ -144,7 +144,7 @@ const userSchema = new Schema(
 ## Key Takeaway
 
 - Importance of planning out the model
-- How to populate data with an embedded data & reading documentation
+- How to populate data within an embedded model & reading documentation
 
 ## References
 
